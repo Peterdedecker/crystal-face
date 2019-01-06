@@ -161,13 +161,18 @@ class ThickThinTime extends Ui.Drawable {
 			dc.setColor(gThemeColour, Graphics.COLOR_TRANSPARENT);
 			x = x + dc.getTextWidthInPixels(minutes, mMinutesFont);
 			dc.drawText(
-				x + AM_PM_X_OFFSET, // Breathing space between minutes and AM/PM.
+				x + AM_PM_X_OFFSET + 30, // Breathing space between minutes and AM/PM.
 				halfDCHeight,
 				mSecondsFont,
 				amPmText,
 				Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
 			);
 		}	
+		
+		mSecondsClipRectX = x + 1;
+	/*	mSecondsClipRectY = halfDCHeight - 8;
+		mSecondsClipRectHeight = 18;
+		mSecondsY = halfDCHeight;*/
 	}
 
 	// Called to draw seconds both as part of full draw(), but also onPartialUpdate() of watch face in low power mode.
@@ -209,7 +214,7 @@ class ThickThinTime extends Ui.Drawable {
 			mSecondsY,
 			mSecondsFont,
 			seconds,
-			Graphics.TEXT_JUSTIFY_LEFT
+			Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
 		);	
 	}
 }
