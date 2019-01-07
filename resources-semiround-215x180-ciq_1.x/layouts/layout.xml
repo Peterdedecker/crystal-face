@@ -51,7 +51,7 @@
 
 	<drawable id="Time" class="ThickThinTime">
 		<param name="secondsX">145</param>
-		<param name="secondsY">109</param>
+		<param name="secondsY">90</param>
 		
 		<!-- Partial updates not supported -->		
 		<!-- param name="secondsClipY">117</param-->

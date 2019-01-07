@@ -46,8 +46,8 @@
 
 	<drawable id="Time" class="ThickThinTime">
 		<param name="secondsX">147</param>
-		<param name="secondsY">129</param>		
-		<param name="secondsClipY">139</param>
+		<param name="secondsY">109</param>		
+		<param name="secondsClipY">99</param>
 		<param name="secondsClipWidth">22</param>
 		<param name="secondsClipHeight">15</param>
 	</drawable>
