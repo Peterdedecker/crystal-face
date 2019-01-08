@@ -145,7 +145,7 @@ class CrystalView extends Ui.WatchFace {
 		mDrawables[:LeftGoalMeter] = View.findDrawableById("LeftGoalMeter");
 		mDrawables[:LeftGoalIcon] = View.findDrawableById("LeftGoalIcon");
 
-		mDrawables[:RightGoalMeter] = View.findDrawableById("RightGoalMeter");
+		//mDrawables[:RightGoalMeter] = View.findDrawableById("RightGoalMeter");
 		mDrawables[:RightGoalIcon] = View.findDrawableById("RightGoalIcon");
 
 		mDrawables[:DataArea] = View.findDrawableById("DataArea");
@@ -160,7 +160,7 @@ class CrystalView extends Ui.WatchFace {
 		// Use mDataFields instead.
 		//mDrawables[:DataFields] = View.findDrawableById("DataFields");
 
-		mDrawables[:MoveBar] = View.findDrawableById("MoveBar");
+		//mDrawables[:MoveBar] = View.findDrawableById("MoveBar");
 	}
 
 	// Called when this View is brought to the foreground. Restore
@@ -257,9 +257,9 @@ class CrystalView extends Ui.WatchFace {
 
 		// Recreate background buffers for each meter, in case theme colour has changed.
 		mDrawables[:LeftGoalMeter].onSettingsChanged();
-		mDrawables[:RightGoalMeter].onSettingsChanged();
+		//mDrawables[:RightGoalMeter].onSettingsChanged();
 
-		mDrawables[:MoveBar].onSettingsChanged();
+		//mDrawables[:MoveBar].onSettingsChanged();
 
 		mDataFields.onSettingsChanged();
 
@@ -302,7 +302,7 @@ class CrystalView extends Ui.WatchFace {
 
 		var rightType = App.getApp().getProperty("RightGoalType");
 		var rightValues = getValuesForGoalType(rightType);
-		mDrawables[:RightGoalMeter].setValues(rightValues[:current], rightValues[:max]);
+		//mDrawables[:RightGoalMeter].setValues(rightValues[:current], rightValues[:max]);
 
 		mDrawables[:DataArea].setGoalValues(leftType, leftValues, rightType, rightValues);
 	}
@@ -416,7 +416,7 @@ class CrystalView extends Ui.WatchFace {
 
 	function setHideSeconds(hideSeconds) {
 		mTime.setHideSeconds(hideSeconds);
-		mDrawables[:MoveBar].setFullWidth(hideSeconds);
+		//mDrawables[:MoveBar].setFullWidth(hideSeconds);
 	}
 
 	/**
