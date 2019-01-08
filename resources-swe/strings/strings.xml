@@ -10,7 +10,7 @@
 	<string id="RightGoalMeterTitle">Höger Mätare</string>
 	<string id="CaloriesGoalTitle">Kalorimål (1-10,000kCal)</string>
 	<string id="GoalMeterStyleTitle">Mätarstil</string>
-	<string id="LocalTimeInCityTitle">Add Local Time in City (Beta)</string>
+	<string id="LocalTimeInCityTitle">Add Local Time in City (Beta)</string><!-- TODO_TRANSLATE -->
 	<string id="MoveBarStyleTitle">Rörelsemätarstil</string>
 	<string id="HideSecondsTitle">Dölj Sekunder</string>
 	<string id="HideHoursLeadingZeroTitle">Dölj inledande nollor</string>
@@ -19,7 +19,6 @@
 	<string id="DataField1Title">Data Field 1</string>
 	<string id="DataField2Title">Data Field 2</string>
 	<string id="DataField3Title">Data Field 3</string>
-	<string id="OpenWeatherMapKeyTitle">OpenWeatherMap Key</string>
 
 	<string id="IndicatorCountTitle">Number Of Indicators</string>
 	<string id="Indicator1Title">Indicator 1</string>
@@ -49,6 +48,8 @@
 	<string id="ThemeBlueLight">Blå (Ljus)</string>
 	<string id="ThemeRedLight">Röd (Ljus)</string>
 	<string id="ThemeGreenLight">Grön (Ljus)</string>
+	<string id="ThemeDaygloOrangeLight">Lysande Orange (Ljus)</string>
+	<string id="ThemeCornYellowDark">Corn Yellow (Mörk)</string><!-- TODO_TRANSLATE -->
 
 	<string id="Steps">Steg</string>
 	<string id="FloorsClimbed">Våningar</string>
@@ -69,6 +70,7 @@
 	<string id="BluetoothOrNotifications">Bluetooth/Notifieringar</string>
 	<string id="SunriseSunset">Soluppgång/Solnedgång</string>
 	<string id="Weather">Väder</string>
+	<string id="Pressure">Tryck</string>
 
 	<!-- Internal use only. Required because fonts cannot be overridden by locale. Leave blank for no override. -->
 	<string id="DATE_FONT_OVERRIDE"></string>	

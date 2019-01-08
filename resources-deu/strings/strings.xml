@@ -19,7 +19,6 @@
 	<string id="DataField1Title">Datenfeld 1</string>
 	<string id="DataField2Title">Datenfeld 2</string>
 	<string id="DataField3Title">Datenfeldd 3</string>
-	<string id="OpenWeatherMapKeyTitle">OpenWeatherMap Key</string>
 
 	<string id="IndicatorCountTitle">Anzahl der Indikatoren</string>
 	<string id="Indicator1Title">Indikator 1</string>
@@ -49,6 +48,8 @@
 	<string id="ThemeBlueLight">Blau (Hell)</string>
 	<string id="ThemeRedLight">Rot (Hell)</string>
 	<string id="ThemeGreenLight">Grün (Hell)</string>
+	<string id="ThemeDaygloOrangeLight">Dayglo Orange (Hell)</string>
+	<string id="ThemeCornYellowDark">Korngelb (Dunkel)</string>
 
 	<string id="Steps">Schritte</string>
 	<string id="FloorsClimbed">Stockwerke</string>
@@ -69,6 +70,7 @@
 	<string id="BluetoothOrNotifications">Bluetooth/Hinweise</string>
 	<string id="SunriseSunset">Sonnenaufgang/Sonnenuntergang</string>
 	<string id="Weather">Wetter</string>
+	<string id="Pressure">Druck</string>
 
 	<!-- Internal use only. Required because fonts cannot be overridden by locale. Leave blank for no override. -->
 	<string id="DATE_FONT_OVERRIDE"></string>	
