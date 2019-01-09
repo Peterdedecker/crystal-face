@@ -26,8 +26,8 @@
  		<param name="locX">80</param>
 		<param name="width">80</param>
 -->		
-		<param name="row1Y">195</param>
-		<param name="row2Y">180</param>
+		<param name="row1Y">193</param>
+		<param name="row2Y">178</param>
 		<param name="goalIconY">205</param>
 		<param name="goalIconLeftX">80</param>
 		<param name="goalIconMiddleX">120</param>
@@ -58,11 +58,10 @@
 		<param name="secondsClipWidth">26</param>
 		<param name="secondsClipHeight">18</param>
 	</drawable>
-
 	
 	<drawable id="MoveBar" class="MoveBar">
 		<param name="x">52</param>
-		<param name="y">161</param>
+		<param name="y">160</param>
 		<param name="width">136</param>
 		<param name="height">9</param>
 		<param name="separator">3</param>

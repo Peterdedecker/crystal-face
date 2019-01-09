@@ -201,13 +201,27 @@ class DataArea extends Ui.Drawable {
 	}
 
 	function drawGoalValues(dc, x, currentValue, maxValue, align) {
+		var divide = false;
+		if (currentValue != null) {
+			if (isNumeric(currentValue)) {
+				divide = currentValue.toNumber() > 1000;
+			}
+		}
+		if (!divide) {
+			if (maxValue != null) {
+				if (isNumeric(maxValue)) {
+					divide = maxValue.toNumber() > 1000;
+				}
+			}
+		}
+		
 		if (currentValue != null) {
 			dc.setColor(gMonoLightColour, Gfx.COLOR_TRANSPARENT);
 			dc.drawText(
 				x,
 				mRow1Y,
 				gNormalFont,
-				currentValue,
+				divide? (currentValue.toNumber() / 1000.0).format("%.1f") : currentValue,
 				align | Graphics.TEXT_JUSTIFY_VCENTER
 			); 
 		}
@@ -218,9 +232,22 @@ class DataArea extends Ui.Drawable {
 				x,
 				mRow2Y,
 				gNormalFont,
-				maxValue,
+				divide? (maxValue.toNumber() / 1000.0).format("%.1f") : maxValue,
 				align | Graphics.TEXT_JUSTIFY_VCENTER
 			);
 		}
 	}
+	
+    function isNumeric(value) {
+        if (value == null) {
+            return false;
+        }
+        for (var i = 0; i < value.length(); i++) {
+            var x = value.substring(i, i+1);
+            if (!(x.equals("0") || x.equals("1") || x.equals("2") || x.equals("3") || x.equals("4") || x.equals("5") || x.equals("6") || x.equals("7") || x.equals("8") || x.equals("9"))) { 
+                return false;
+            }
+        }
+        return value.length() > 0;
+    }
 }
