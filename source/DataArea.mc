@@ -15,6 +15,11 @@ class DataArea extends Ui.Drawable {
 	private var mLeftGoalCurrent;
 	private var mLeftGoalMax;
 
+	private var mMiddleGoalType;
+	private var mMiddleGoalIsValid;
+	private var mMiddleGoalCurrent;
+	private var mMiddleGoalMax;
+
 	private var mRightGoalType;
 	private var mRightGoalIsValid;
 	private var mRightGoalCurrent;
@@ -22,6 +27,7 @@ class DataArea extends Ui.Drawable {
 
 	private var mGoalIconY;
 	private var mGoalIconLeftX;
+	private var mGoalIconMiddleX;
 	private var mGoalIconRightX;
 
 	function initialize(params) {
@@ -32,10 +38,12 @@ class DataArea extends Ui.Drawable {
 
 		mGoalIconY = params[:goalIconY];
 		mGoalIconLeftX = params[:goalIconLeftX];
+		mGoalIconMiddleX = params[:goalIconMiddleX];
 		mGoalIconRightX = params[:goalIconRightX];
 	}
 
-	function setGoalValues(leftType, leftValues, rightType, rightValues) {
+	function setGoalValues(leftType, leftValues, rightType, rightValues, 
+	                       middleType, middleValues) {
 		mLeftGoalType = leftType;
 		mLeftGoalIsValid = leftValues[:isValid];
 
@@ -65,12 +73,27 @@ class DataArea extends Ui.Drawable {
 			mRightGoalCurrent = null;
 			mRightGoalMax = null;
 		}
+		
+		mMiddleGoalType = middleType;
+		mMiddleGoalIsValid = middleValues[:isValid];
+		if (mMiddleGoalIsValid) {
+			mMiddleGoalCurrent = rightValues[:current].format(INTEGER_FORMAT);
+			if (mMiddleGoalType == GOAL_TYPE_BATTERY) {
+				mMiddleGoalMax = "%";
+			} else {
+				mMiddleGoalMax = middleValues[:max].format(INTEGER_FORMAT);
+			}
+		} else {
+			mMiddleGoalCurrent = null;
+			mMiddleGoalMax = null;
+		}
 	}
 
 	function draw(dc) {
-		drawGoalIcon(dc, mGoalIconLeftX, mLeftGoalType, mLeftGoalIsValid, Graphics.TEXT_JUSTIFY_LEFT);
-		drawGoalIcon(dc, mGoalIconRightX, mRightGoalType, mRightGoalIsValid, Graphics.TEXT_JUSTIFY_RIGHT);
-
+		drawGoalIcon(dc, mGoalIconLeftX, mLeftGoalType, mLeftGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);
+		drawGoalIcon(dc, mGoalIconMiddleX, mMiddleGoalType, mMiddleGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);  
+		drawGoalIcon(dc, mGoalIconRightX, mRightGoalType, mRightGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);  
+/*
 		var city = App.getApp().getProperty("LocalTimeInCity");
 
 		// Check for has :Storage, in case we're loading settings in the simulator from a different device.
@@ -142,9 +165,13 @@ class DataArea extends Ui.Drawable {
 			);
 
 		} else {
-			drawGoalValues(dc, locX, mLeftGoalCurrent, mLeftGoalMax, Graphics.TEXT_JUSTIFY_LEFT);
-			drawGoalValues(dc, locX + width, mRightGoalCurrent, mRightGoalMax, Graphics.TEXT_JUSTIFY_RIGHT);
+*/		
+			drawGoalValues(dc, mGoalIconLeftX, mLeftGoalCurrent, mLeftGoalMax, Graphics.TEXT_JUSTIFY_CENTER);
+			drawGoalValues(dc, mGoalIconRightX, mRightGoalCurrent, mRightGoalMax, Graphics.TEXT_JUSTIFY_CENTER);
+			drawGoalValues(dc, mGoalIconMiddleX, mMiddleGoalCurrent, mMiddleGoalMax, Graphics.TEXT_JUSTIFY_CENTER);
+/*
 		}
+*/		
 	}
 
 	function drawGoalIcon(dc, x, type, isValid, align) {
@@ -182,7 +209,7 @@ class DataArea extends Ui.Drawable {
 				gNormalFont,
 				currentValue,
 				align | Graphics.TEXT_JUSTIFY_VCENTER
-			);
+			); 
 		}
 
 		if (maxValue != null) {

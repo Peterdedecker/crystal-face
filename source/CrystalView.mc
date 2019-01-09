@@ -144,7 +144,7 @@ class CrystalView extends Ui.WatchFace {
 	}
 
 	function cacheDrawables() {
-		mDrawables[:LeftGoalMeter] = View.findDrawableById("LeftGoalMeter");
+		//mDrawables[:LeftGoalMeter] = View.findDrawableById("LeftGoalMeter");
 		mDrawables[:LeftGoalIcon] = View.findDrawableById("LeftGoalIcon");
 
 		//mDrawables[:RightGoalMeter] = View.findDrawableById("RightGoalMeter");
@@ -262,7 +262,7 @@ class CrystalView extends Ui.WatchFace {
 	function onSettingsChangedSinceLastDraw() {
 
 		// Recreate background buffers for each meter, in case theme colour has changed.
-		mDrawables[:LeftGoalMeter].onSettingsChanged();
+		//mDrawables[:LeftGoalMeter].onSettingsChanged();
 		//mDrawables[:RightGoalMeter].onSettingsChanged();
 
 		//mDrawables[:MoveBar].onSettingsChanged();
@@ -304,13 +304,15 @@ class CrystalView extends Ui.WatchFace {
 	function updateGoalMeters() {
 		var leftType = App.getApp().getProperty("LeftGoalType");
 		var leftValues = getValuesForGoalType(leftType);
-		mDrawables[:LeftGoalMeter].setValues(leftValues[:current], leftValues[:max]);
+		//mDrawables[:LeftGoalMeter].setValues(leftValues[:current], leftValues[:max]);
 
 		var rightType = App.getApp().getProperty("RightGoalType");
 		var rightValues = getValuesForGoalType(rightType);
 		//mDrawables[:RightGoalMeter].setValues(rightValues[:current], rightValues[:max]);
 
-		mDrawables[:DataArea].setGoalValues(leftType, leftValues, rightType, rightValues);
+		var middleType = App.getApp().getProperty("MiddleGoalType");
+		mDrawables[:DataArea].setGoalValues(leftType, leftValues, rightType, rightValues,
+		                                    middleType, getValuesForGoalType(middleType));
 	}
 
 	function getValuesForGoalType(type) {
