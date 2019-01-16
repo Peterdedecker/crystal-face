@@ -5,9 +5,11 @@ using Toybox.Application as App;
 
 (:background)
 class BackgroundService extends Sys.ServiceDelegate {
+	var mKey;
 	
 	function initialize() {
 		Sys.ServiceDelegate.initialize();
+		
 	}
 
 	// Read pending web requests, and call appropriate web request function.
@@ -36,7 +38,7 @@ class BackgroundService extends Sys.ServiceDelegate {
 						// Assume that any watch that can make web requests, also supports App.Storage.
 						"lat" => App.Storage.getValue("LastLocationLat"),
 						"lon" => App.Storage.getValue("LastLocationLng"),
-						"appid" => "d72271af214d870eb94fe8f9af450db4",
+						"appid" => App.Storage.getValue("WeatherKey"),
 						"units" => "metric" // Celcius.
 					},
 					method(:onReceiveOpenWeatherMapCurrent)

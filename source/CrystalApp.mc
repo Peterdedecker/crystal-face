@@ -177,6 +177,7 @@ class CrystalApp extends App.AppBase {
 		}
 
 		App.Storage.setValue("PendingWebRequests", pendingWebRequests);
+		App.Storage.setValue("WeatherKey", Ui.loadResource(Rez.Strings.WeatherKey));
 	}
 
 	function getServiceDelegate() {
