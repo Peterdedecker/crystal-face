@@ -92,9 +92,9 @@
 			<!--listEntry value="11">@Strings.Weather</listEntry-->
 		</settingConfig>
 	</setting>
-	
+<!-- 
 	<setting propertyKey="@Properties.LocalTimeInCity" title="@Strings.LocalTimeInCityTitle">
 		<settingConfig type="alphaNumeric" readonly="true"/>
 	</setting>
-
+-->
 </settings>

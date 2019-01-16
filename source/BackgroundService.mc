@@ -17,7 +17,7 @@ class BackgroundService extends Sys.ServiceDelegate {
 		//Sys.println("onTemporalEvent");
 		var pendingWebRequests = App.Storage.getValue("PendingWebRequests");
 		if (pendingWebRequests != null) {
-
+/*
 			// 1. City local time.
 			if (pendingWebRequests["CityLocalTime"] != null) {
 				makeWebRequest(
@@ -29,7 +29,7 @@ class BackgroundService extends Sys.ServiceDelegate {
 				);
 
 			// 2. Weather.
-			} else if (pendingWebRequests["OpenWeatherMapCurrent"] != null) {
+			} else */ if (pendingWebRequests["OpenWeatherMapCurrent"] != null) {
 				makeWebRequest(
 					"https://api.openweathermap.org/data/2.5/weather",
 					{
@@ -74,6 +74,8 @@ class BackgroundService extends Sys.ServiceDelegate {
 		}
 	}
 	*/
+	
+	/*
 	function onReceiveCityLocalTime(responseCode, data) {
 
 		// HTTP failure: return responseCode.
@@ -88,6 +90,7 @@ class BackgroundService extends Sys.ServiceDelegate {
 			"CityLocalTime" => data
 		});
 	}
+	*/
 
 	// Sample invalid API key:
 	/*
