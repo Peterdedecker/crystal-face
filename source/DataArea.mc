@@ -77,7 +77,7 @@ class DataArea extends Ui.Drawable {
 		mMiddleGoalType = middleType;
 		mMiddleGoalIsValid = middleValues[:isValid];
 		if (mMiddleGoalIsValid) {
-			mMiddleGoalCurrent = rightValues[:current].format(INTEGER_FORMAT);
+			mMiddleGoalCurrent = middleValues[:current].format(INTEGER_FORMAT);
 			if (mMiddleGoalType == GOAL_TYPE_BATTERY) {
 				mMiddleGoalMax = "%";
 			} else {
@@ -90,9 +90,9 @@ class DataArea extends Ui.Drawable {
 	}
 
 	function draw(dc) {
-		drawGoalIcon(dc, mGoalIconLeftX, mLeftGoalType, mLeftGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);
-		drawGoalIcon(dc, mGoalIconMiddleX, mMiddleGoalType, mMiddleGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);  
-		drawGoalIcon(dc, mGoalIconRightX, mRightGoalType, mRightGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER);  
+		drawGoalIcon(dc, mGoalIconLeftX, mLeftGoalType, mLeftGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER, mLeftGoalCurrent, mLeftGoalMax);
+		drawGoalIcon(dc, mGoalIconMiddleX, mMiddleGoalType, mMiddleGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER, mMiddleGoalCurrent, mMiddleGoalMax);  
+		drawGoalIcon(dc, mGoalIconRightX, mRightGoalType, mRightGoalIsValid, Graphics.TEXT_JUSTIFY_CENTER, mRightGoalCurrent, mRightGoalMax);  
 /*
 		var city = App.getApp().getProperty("LocalTimeInCity");
 
@@ -174,7 +174,7 @@ class DataArea extends Ui.Drawable {
 */		
 	}
 
-	function drawGoalIcon(dc, x, type, isValid, align) {
+	function drawGoalIcon(dc, x, type, isValid, align, currentValue, maxValue) {
 		var icon = {
 			GOAL_TYPE_BATTERY => "9",
 			GOAL_TYPE_CALORIES => "6",
@@ -183,14 +183,32 @@ class DataArea extends Ui.Drawable {
 			GOAL_TYPE_ACTIVE_MINUTES => "2",
 		}[type];
 
-		var colour;
 		if (isValid) {
-			colour = gThemeColour;
+			if (type == GOAL_TYPE_BATTERY) {
+				dc.setColor(gThemeColour, Gfx.COLOR_TRANSPARENT);
+			} else {
+				var h = 24; // icon height
+				var correction = (align == Gfx.TEXT_JUSTIFY_CENTER ? h / 2 : 0);
+				dc.setColor(gMeterBackgroundColour, gMeterBackgroundColour);
+				dc.fillRectangle(x - correction, mGoalIconY+1, h, h);
+			
+				//draw filled rectangle to represent the completeness level
+				var p = currentValue.toNumber() * 1.0 / maxValue.toNumber();
+				if (p > 1) {
+					p = 1;
+				}
+				p = (p * h).toLong();
+				dc.setColor(gThemeColour, gThemeColour);
+				dc.fillRectangle(x - correction, mGoalIconY+1+(h-p), h, p);
+	
+				//create and draw the clipping mask
+				dc.setColor(Gfx.COLOR_TRANSPARENT, gBackgroundColour);		
+			}			
 		} else {
-			colour = gMeterBackgroundColour;
+			dc.setColor(gMeterBackgroundColour, Gfx.COLOR_TRANSPARENT);
 		}
 
-		dc.setColor(colour, Gfx.COLOR_TRANSPARENT);
+		
 		dc.drawText(
 			x,
 			mGoalIconY,

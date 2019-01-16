@@ -1,4 +1,5 @@
-project.manifest = manifest.xml
+#project.manifest = manifest_kudos_beta.xml
+project.manifest = manifest_kudos.xml
 
 # Smaller round watches use small time font.
 round-218x218.resourcePath = $(round-218x218.resourcePath);resources-small-time

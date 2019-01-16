@@ -1,6 +1,6 @@
 <layout id="WatchFace">
 	<drawable class="Background" />
-
+<!-- 
 	<drawable id="LeftGoalMeter" class="GoalMeter">
 		<param name="side">:left</param>
 		<param name="shape">:arc</param>
@@ -16,20 +16,24 @@
 		<param name="height">138</param>
 		<param name="separator">2</param>
 	</drawable>
-
+-->
 	<!-- Mask required for goal meter drawing without clip support -->
+<!-- 	
 	<drawable class="GoalMeterMask">
 		<param name="stroke">8</param>
 	</drawable>
-
+-->
 	<drawable id="DataArea" class="DataArea">
+<!-- 	
 		<param name="locX">67</param>
 		<param name="width">84</param>
-		<param name="row1Y">170</param>
-		<param name="row2Y">186</param>
-		<param name="goalIconY">166</param>
-		<param name="goalIconLeftX">40</param>
-		<param name="goalIconRightX">178</param>
+-->		
+		<param name="row1Y">174</param>
+		<param name="row2Y">160</param>
+		<param name="goalIconY">184</param>
+		<param name="goalIconLeftX">69</param>
+		<param name="goalIconMiddleX">109</param>
+		<param name="goalIconRightX">149</param>
 	</drawable>
 
 	<drawable id="DataFields" class="DataFields">
@@ -61,8 +65,8 @@
 
 	<drawable id="MoveBar" class="MoveBar">
 		<param name="x">50</param>
-		<param name="y">146</param>
-		<param name="width">90</param>
+		<param name="y">144</param>
+		<param name="width">118</param>
 		<param name="height">9</param>
 		<param name="separator">3</param>
 	</drawable>

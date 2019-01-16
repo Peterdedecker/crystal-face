@@ -155,10 +155,10 @@ class ThickThinTime extends Ui.Drawable {
 			minutes,
 			Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
 		);
+		x = x + dc.getTextWidthInPixels(minutes, mMinutesFont);
 		// If required, draw AM/PM after minutes, vertically centred.
 		if (amPmText.length() > 0) {
 			dc.setColor(gThemeColour, Graphics.COLOR_TRANSPARENT);
-			x = x + dc.getTextWidthInPixels(minutes, mMinutesFont);
 			dc.drawText(
 				x + AM_PM_X_OFFSET + (mHideSeconds? 0 : 30), // Breathing space between minutes and AM/PM.
 				halfDCHeight,
@@ -166,7 +166,7 @@ class ThickThinTime extends Ui.Drawable {
 				amPmText,
 				Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
 			);
-		}	
+		} 	
 		
 		mSecondsClipRectX = x + 1;
 	/*	mSecondsClipRectY = halfDCHeight - 8;
