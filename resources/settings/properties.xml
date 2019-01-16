@@ -2,7 +2,7 @@
 <!-- 
 	<property id="AppVersion" type="string">1.0</property>
 -->
-	<property id="Theme" type="number">4</property>
+	<property id="Theme" type="number">6</property>
 
 	<property id="HoursColourOverride" type="number">0</property>
 	<property id="MinutesColourOverride" type="number">0</property>

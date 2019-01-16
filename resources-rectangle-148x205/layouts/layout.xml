@@ -1,6 +1,6 @@
 <layout id="WatchFace">
 	<drawable class="Background" />
-
+<!-- 
 	<drawable id="LeftGoalMeter" class="GoalMeter">
 		<param name="side">:left</param>
 		<param name="shape">:line</param>
@@ -16,15 +16,16 @@
 		<param name="height">205</param>
 		<param name="separator">2</param>
 	</drawable>
-
+-->
 	<drawable id="DataArea" class="DataArea">
 		<param name="locX">34</param>
 		<param name="width">80</param>
-		<param name="row1Y">174</param>
-		<param name="row2Y">190</param>
-		<param name="goalIconY">172</param>
-		<param name="goalIconLeftX">11</param>
-		<param name="goalIconRightX">137</param>
+		<param name="row1Y">170</param>
+		<param name="row2Y">300</param> <!--  draw off screen -->
+		<param name="goalIconY">182</param>
+		<param name="goalIconLeftX">33</param>
+		<param name="goalIconMiddleX">74</param>
+		<param name="goalIconRightX">115</param>
 	</drawable>
 
 	<drawable id="DataFields" class="DataFields">

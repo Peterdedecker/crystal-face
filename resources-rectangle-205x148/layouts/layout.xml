@@ -1,6 +1,6 @@
 <layout id="WatchFace">
 	<drawable class="Background" />
-
+<!-- 
 	<drawable id="LeftGoalMeter" class="GoalMeter">
 		<param name="side">:left</param>
 		<param name="shape">:line</param>
@@ -16,15 +16,18 @@
 		<param name="height">148</param>
 		<param name="separator">2</param>
 	</drawable>
-
+-->
 	<drawable id="DataArea" class="DataArea">
+<!-- 	
 		<param name="locX">42</param>
 		<param name="width">121</param>
-		<param name="row1Y">122</param>
-		<param name="row2Y">138</param>
-		<param name="goalIconY">120</param>
-		<param name="goalIconLeftX">14</param>
-		<param name="goalIconRightX">191</param>
+-->
+		<param name="row1Y">115</param>
+		<param name="row2Y">300</param> <!-- off screen -->
+		<param name="goalIconY">125</param>
+		<param name="goalIconLeftX">92</param>
+		<param name="goalIconMiddleX">133</param>
+		<param name="goalIconRightX">174</param>
 	</drawable>
 
 	<drawable id="DataFields" class="DataFields">
@@ -48,7 +51,7 @@
 
 	<drawable id="Time" class="ThickThinTime">
 		<param name="secondsX">133</param>
-		<param name="secondsY">74</param>
+		<param name="secondsY">70</param>
 
 		<!-- Partial updates not supported -->	
 		<!-- param name="secondsClipY">124</param-->
@@ -62,7 +65,7 @@
 	<drawable id="MoveBar" class="MoveBar">
 		<param name="x">52</param>
 		<param name="y">101</param>
-		<param name="width">75</param>
+		<param name="width">150</param>
 		<param name="height">7</param>
 		<param name="separator">3</param>
 	</drawable>
