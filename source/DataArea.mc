@@ -29,6 +29,8 @@ class DataArea extends Ui.Drawable {
 	private var mGoalIconLeftX;
 	private var mGoalIconMiddleX;
 	private var mGoalIconRightX;
+	
+	private var mIconWidth;
 
 	function initialize(params) {
 		Drawable.initialize(params);
@@ -40,6 +42,8 @@ class DataArea extends Ui.Drawable {
 		mGoalIconLeftX = params[:goalIconLeftX];
 		mGoalIconMiddleX = params[:goalIconMiddleX];
 		mGoalIconRightX = params[:goalIconRightX];
+		
+		mIconWidth = Ui.loadResource(Rez.Strings.IconWidth).toNumber();  // it might be a cleaner way to use a parameter on the layout
 	}
 
 	function setGoalValues(leftType, leftValues, rightType, rightValues, 
@@ -187,7 +191,7 @@ class DataArea extends Ui.Drawable {
 			if (type == GOAL_TYPE_BATTERY) {
 				dc.setColor(gThemeColour, Gfx.COLOR_TRANSPARENT);
 			} else {
-				var h = 24; // icon height
+				var h = mIconWidth;
 				var correction = (align == Gfx.TEXT_JUSTIFY_CENTER ? h / 2 : 0);
 				dc.setColor(gMeterBackgroundColour, gMeterBackgroundColour);
 				dc.fillRectangle(x - correction, mGoalIconY+1, h, h);

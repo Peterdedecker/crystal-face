@@ -96,5 +96,8 @@
 	<string id="Nov">Nov</string>
 	<string id="Dec">Dec</string>
 
+	<!-- Kudos: extra strings -->
 	<string id="MiddleGoalMeterTitle">Middle Meter</string>
+	<string id="IconWidth">24</string>
+	
 </strings>
