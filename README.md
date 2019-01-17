@@ -3,7 +3,7 @@ A Garmin Connect IQ watch face.
 
 ## Description
 "Kudos" is a Strava term for when you like the effort someone has done.
-Kudos is my tribute to warmsound's Crystal (for it's great layout) and HermoT's NoFrills (for the idea of using font based filled meters). 
+Kudos is my tribute to PixelPathos' Crystal (for it's great layout) and HermoT's NoFrills (for the idea of using font based filled meters). 
 
 Enjoy the watch face! :)
 
