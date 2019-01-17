@@ -32,6 +32,16 @@
 		</settingConfig>
 	</setting>
 
+	<setting propertyKey="@Properties.MiddleGoalType" title="@Strings.MiddleGoalMeterTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.Steps</listEntry>
+			<!--listEntry value="1">@Strings.FloorsClimbed</listEntry-->
+			<!--listEntry value="2">@Strings.ActiveMinutes</listEntry-->
+			<listEntry value="-1">@Strings.Battery</listEntry>
+			<listEntry value="-2">@Strings.CaloriesManualGoal</listEntry>
+		</settingConfig>
+	</setting>
+
 	<setting propertyKey="@Properties.RightGoalType" title="@Strings.RightGoalMeterTitle">
 		<settingConfig type="list">
 			<listEntry value="0">@Strings.Steps</listEntry>
@@ -95,9 +105,9 @@
 			<!--listEntry value="11">@Strings.Weather</listEntry-->
 		</settingConfig>
 	</setting>
-
+<!-- 
 	<setting propertyKey="@Properties.LocalTimeInCity" title="@Strings.LocalTimeInCityTitle">
 		<settingConfig type="alphaNumeric" readonly="true"/>
 	</setting>
-
+-->
 </settings>
