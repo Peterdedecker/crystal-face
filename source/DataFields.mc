@@ -199,7 +199,7 @@ class DataFields extends Ui.Drawable {
 		if (value.length() == 0) {
 			colour = gMeterBackgroundColour;
 		} else {
-			colour = gThemeColour;
+			colour = gIconColour;
 		}
 
 		// Battery.

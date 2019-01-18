@@ -99,5 +99,21 @@
 	<!-- Kudos: extra strings -->
 	<string id="MiddleGoalMeterTitle">Middle Meter</string>
 	<string id="IconWidth">24</string>
+	<string id="ThemeKudosMultiColor">Kudos: Multi Colour</string>
+	<string id="IconColourOverrideTitle">Icon Colour</string>
+	<string id="white">White</string>
+	<string id="lightGray">Light Gray</string>
+	<string id="darkGray">Dark Gray</string>
+	<string id="black">Black</string>
+	<string id="red">Red</string>
+	<string id="darkRed">Dark Red</string>
+	<string id="orange">Orange</string>
+	<string id="yellow">Yellow</string>
+	<string id="green">Green</string>
+	<string id="darkGreen">Dark Green</string>
+	<string id="blue">Blue</string>
+	<string id="darkBlue">Dark Blue</string>
+	<string id="purple">Purple</string>
+	<string id="pink">Pink</string>
 	
 </strings>

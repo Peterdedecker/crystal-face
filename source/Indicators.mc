@@ -78,7 +78,7 @@ class Indicators extends Ui.Drawable {
 
 		var colour;
 		if (value) {
-			colour = gThemeColour;
+			colour = gIconColour;
 		} else {
 			colour = gMeterBackgroundColour;
 		}

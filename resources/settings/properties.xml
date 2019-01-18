@@ -2,10 +2,11 @@
 <!-- 
 	<property id="AppVersion" type="string">1.0</property>
 -->
-	<property id="Theme" type="number">6</property>
+	<property id="Theme" type="number">-1</property>
 
 	<property id="HoursColourOverride" type="number">0</property>
 	<property id="MinutesColourOverride" type="number">0</property>
+	<property id="IconColourOverride" type="number">0</property>
 
 	<property id="LeftGoalType" type="number">0</property>
 	<property id="MiddleGoalType" type="number">-1</property>
@@ -13,7 +14,7 @@
 <!-- 	
 	<property id="GoalMeterStyle" type="number">0</property>
 -->	
-	<property id="CaloriesGoal" type="number">2000</property>
+	<property id="CaloriesGoal" type="number">3000</property>
 
 	<property id="FieldCount" type="number">3</property>
 	<property id="Field1Type" type="number">9</property>

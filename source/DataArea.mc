@@ -189,7 +189,7 @@ class DataArea extends Ui.Drawable {
 
 		if (isValid) {
 			if (type == GOAL_TYPE_BATTERY) {
-				dc.setColor(gThemeColour, Gfx.COLOR_TRANSPARENT);
+				dc.setColor(gIconColour, Gfx.COLOR_TRANSPARENT);
 			} else {
 				var h = mIconWidth;
 				var correction = (align == Gfx.TEXT_JUSTIFY_CENTER ? h / 2 : 0);
@@ -202,7 +202,11 @@ class DataArea extends Ui.Drawable {
 					p = 1;
 				}
 				p = (p * h).toLong();
-				dc.setColor(gThemeColour, gThemeColour);
+				if (p >= h) {
+					dc.setColor(gThemeColour, gThemeColour);
+				} else {
+					dc.setColor(gIconColour, gIconColour);
+				}
 				dc.fillRectangle(x - correction, mGoalIconY+1+(h-p), h, p);
 	
 				//create and draw the clipping mask

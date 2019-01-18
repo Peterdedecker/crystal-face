@@ -6,6 +6,8 @@
 -->
 	<setting propertyKey="@Properties.Theme" title="@Strings.ThemeTitle">
 		<settingConfig type="list">
+			<listEntry value="-1">@Strings.ThemeKudosMultiColor</listEntry>
+		
 			<listEntry value="0">@Strings.ThemeBlueDark</listEntry>
 			<listEntry value="1">@Strings.ThemePinkDark</listEntry>
 			<listEntry value="7">@Strings.ThemeRedDark</listEntry>
@@ -171,6 +173,26 @@
 			<listEntry value="0">@Strings.FromTheme</listEntry>
 			<listEntry value="1">@Strings.MonoHighlight</listEntry>
 			<listEntry value="2">@Strings.Mono</listEntry>
+		</settingConfig>
+	</setting>
+
+	<setting propertyKey="@Properties.IconColourOverride" title="@Strings.IconColourOverrideTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.FromTheme</listEntry>
+			<listEntry value="1">@Strings.white</listEntry>
+			<listEntry value="2">@Strings.lightGray</listEntry>
+			<listEntry value="3">@Strings.darkGray</listEntry>
+			<listEntry value="4">@Strings.black</listEntry>
+			<listEntry value="5">@Strings.red</listEntry>
+			<listEntry value="6">@Strings.darkRed</listEntry>
+			<listEntry value="7">@Strings.orange</listEntry>
+			<listEntry value="8">@Strings.yellow</listEntry>
+			<listEntry value="9">@Strings.green</listEntry>
+			<listEntry value="10">@Strings.darkGreen</listEntry>
+			<listEntry value="11">@Strings.blue</listEntry>
+			<listEntry value="12">@Strings.darkBlue</listEntry>
+			<listEntry value="13">@Strings.purple</listEntry>
+			<listEntry value="14">@Strings.pink</listEntry>
 		</settingConfig>
 	</setting>
 
