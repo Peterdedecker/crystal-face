@@ -19,6 +19,7 @@ var gMeterBackgroundColour;
 var gHoursColour;
 var gMinutesColour;
 var gIconColour;
+var gMultiColour = false;
 
 var gNormalFont;
 var gIconsFont;
@@ -195,11 +196,10 @@ class CrystalView extends Ui.WatchFace {
 	}
 
 	function updateThemeColours() {
-		var greenify = false;
 		var theme = App.getApp().getProperty("Theme");
 		if (theme == -1) {
-			theme = 6;
-			greenify = true;
+			theme = 4;
+			gMultiColour = true;
 		}
 		// Theme-specific colours.
 		gThemeColour = [
@@ -254,7 +254,7 @@ class CrystalView extends Ui.WatchFace {
 		
 		var colArr= [null, Graphics.COLOR_WHITE, Graphics.COLOR_LT_GRAY, Graphics.COLOR_DK_GRAY, Graphics.COLOR_BLACK, Graphics.COLOR_RED, Graphics.COLOR_DK_RED, Graphics.COLOR_ORANGE, Graphics.COLOR_YELLOW, Graphics.COLOR_GREEN, Graphics.COLOR_DK_GREEN, Graphics.COLOR_BLUE, Graphics.COLOR_DK_BLUE, Graphics.COLOR_PURPLE, Graphics.COLOR_PINK];
 		var iconColour = ifnull(App.getApp().getProperty("IconColourOverride"),0);
-		if (iconColour == 0 && greenify) {
+		if (iconColour == 0 && gMultiColour) {
 			iconColour = 9;
 		}
 		gIconColour = ifnull(colArr[iconColour], gThemeColour);
