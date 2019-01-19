@@ -7,6 +7,8 @@ Kudos is my tribute to PixelPathos' Crystal (for it's great layout) and HermoT's
 
 Enjoy the watch face! :)
 
+Weather data by OpenWeatherMap API.
+
 ## What's New
 
 ### 1.0
