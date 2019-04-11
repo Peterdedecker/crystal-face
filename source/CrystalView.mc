@@ -255,7 +255,7 @@ class CrystalView extends Ui.WatchFace {
 		var colArr= [null, Graphics.COLOR_WHITE, Graphics.COLOR_LT_GRAY, Graphics.COLOR_DK_GRAY, Graphics.COLOR_BLACK, Graphics.COLOR_RED, Graphics.COLOR_DK_RED, Graphics.COLOR_ORANGE, Graphics.COLOR_YELLOW, Graphics.COLOR_GREEN, Graphics.COLOR_DK_GREEN, Graphics.COLOR_BLUE, Graphics.COLOR_DK_BLUE, Graphics.COLOR_PURPLE, Graphics.COLOR_PINK];
 		var iconColour = ifnull(App.getApp().getProperty("IconColourOverride"),0);
 		if (iconColour == 0 && gMultiColour) {
-			iconColour = 9;
+			iconColour = 2;
 		}
 		gIconColour = ifnull(colArr[iconColour], gThemeColour);
 	}
