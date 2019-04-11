@@ -1,6 +1,6 @@
 <properties>
 <!-- 
-	<property id="AppVersion" type="string">1.0</property>
+	<property id="AppVersion" type="string">2.3.1</property>
 -->
 	<property id="Theme" type="number">-1</property>
 
@@ -36,5 +36,4 @@
 	<!-- -360.0 is a special value, meaning "unitialised". Can't have null float property. -->
 	<property id="LastLocationLat" type="float">-360.0</property>
 	<property id="LastLocationLng" type="float">-360.0</property>
-
 </properties>
