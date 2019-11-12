@@ -28,8 +28,8 @@ const BATTERY_LINE_WIDTH = 2;
 const BATTERY_HEAD_HEIGHT = 4;
 const BATTERY_MARGIN = 1;
 
-const BATTERY_LEVEL_LOW = 20;
-const BATTERY_LEVEL_CRITICAL = 10;
+//const BATTERY_LEVEL_LOW = 20;
+//const BATTERY_LEVEL_CRITICAL = 10;
 
 // x, y are co-ordinates of centre point.
 // width and height are outer dimensions of battery "body".
@@ -61,9 +61,9 @@ function drawBatteryMeter(dc, x, y, width, height) {
 
 	// Fill colour based on battery level.
 	var fillColour;
-	if (batteryLevel <= BATTERY_LEVEL_CRITICAL) {
+	if (batteryLevel <= /* BATTERY_LEVEL_CRITICAL */ 10) {
 		fillColour = Graphics.COLOR_RED;
-	} else if (batteryLevel <= BATTERY_LEVEL_LOW) {
+	} else if (batteryLevel <= /* BATTERY_LEVEL_LOW */ 20) {
 		fillColour = Graphics.COLOR_YELLOW;
 	} else {
 		fillColour = gThemeColour;
@@ -146,16 +146,14 @@ class CrystalView extends Ui.WatchFace {
 	}
 
 	function cacheDrawables() {
-		//mDrawables[:LeftGoalMeter] = View.findDrawableById("LeftGoalMeter");
-		mDrawables[:LeftGoalIcon] = View.findDrawableById("LeftGoalIcon");
+//		mDrawables[:LeftGoalMeter] = View.findDrawableById("LeftGoalMeter");
+//		mDrawables[:LeftGoalIcon] = View.findDrawableById("LeftGoalIcon");
 
-		//mDrawables[:RightGoalMeter] = View.findDrawableById("RightGoalMeter");
-		mDrawables[:RightGoalIcon] = View.findDrawableById("RightGoalIcon");
+//		mDrawables[:RightGoalMeter] = View.findDrawableById("RightGoalMeter");
+//		mDrawables[:RightGoalIcon] = View.findDrawableById("RightGoalIcon");
 
 		mDrawables[:DataArea] = View.findDrawableById("DataArea");
-
 		mDrawables[:Date] = View.findDrawableById("Date");
-
 		mDrawables[:Indicators] = View.findDrawableById("Indicators");
 
 		// Use mTime instead.
@@ -167,11 +165,13 @@ class CrystalView extends Ui.WatchFace {
 		//mDrawables[:MoveBar] = View.findDrawableById("MoveBar");
 	}
 
+	/*
 	// Called when this View is brought to the foreground. Restore
 	// the state of this View and prepare it to be shown. This includes
 	// loading resources into memory.
 	function onShow() {
 	}
+	*/
 
 	// Set flag to respond to settings change on next full draw (onUpdate()), as we may be in 1Hz (lower power) mode, and cannot
 	// update the full screen immediately. This is true on real hardware, but not in the simulator, which calls onUpdate()
@@ -324,11 +324,11 @@ class CrystalView extends Ui.WatchFace {
 	function updateGoalMeters() {
 		var leftType = App.getApp().getProperty("LeftGoalType");
 		var leftValues = getValuesForGoalType(leftType);
-		//mDrawables[:LeftGoalMeter].setValues(leftValues[:current], leftValues[:max]);
+//		mDrawables[:LeftGoalMeter].setValues(leftValues[:current], leftValues[:max]);
 
 		var rightType = App.getApp().getProperty("RightGoalType");
 		var rightValues = getValuesForGoalType(rightType);
-		//mDrawables[:RightGoalMeter].setValues(rightValues[:current], rightValues[:max]);
+//		mDrawables[:RightGoalMeter].setValues(rightValues[:current], rightValues[:max]);
 
 		var middleType = App.getApp().getProperty("MiddleGoalType");
 		mDrawables[:DataArea].setGoalValues(leftType, leftValues, rightType, rightValues,
@@ -343,6 +343,7 @@ class CrystalView extends Ui.WatchFace {
 		};
 
 		var info = ActivityMonitor.getInfo();
+		var caloriesGoal;
 
 		switch(type) {
 			case GOAL_TYPE_STEPS:
@@ -377,7 +378,15 @@ class CrystalView extends Ui.WatchFace {
 
 			case GOAL_TYPE_CALORIES:
 				values[:current] = info.calories;
-				values[:max] = App.getApp().getProperty("CaloriesGoal");
+
+				// #123 Protect against null value returned by getProperty(). Trigger invalid goal handling code below.
+				// Protect against unexpected type e.g. String.
+				caloriesGoal = App.getApp().getProperty("CaloriesGoal");
+				values[:max] = (caloriesGoal == null) ? 0 : caloriesGoal.toNumber();
+				break;
+
+			case GOAL_TYPE_OFF:
+				values[:isValid] = false;
 				break;
 		}
 
@@ -400,11 +409,13 @@ class CrystalView extends Ui.WatchFace {
 		mTime.drawSeconds(dc, /* isPartialUpdate */ true);
 	}
 
+	/*
 	// Called when this View is removed from the screen. Save the
 	// state of this View here. This includes freeing resources from
 	// memory.
 	function onHide() {
 	}
+	*/
 
 	// The user has just looked at their watch. Timers and animations may be started here.
 	function onExitSleep() {
@@ -504,7 +515,7 @@ class CrystalView extends Ui.WatchFace {
 		var MFloor = Math.floor(M);
 		var MFrac = M - MFloor;
 		M = MFloor.toLong() % 360;
-		M = M + MFrac;
+		M += MFrac;
 		//Sys.println("M " + M);
 
 		// Equation of the centre.
@@ -518,7 +529,7 @@ class CrystalView extends Ui.WatchFace {
 		var lambdaFloor = Math.floor(lambda);
 		var lambdaFrac = lambda - lambdaFloor;
 		lambda = lambdaFloor.toLong() % 360;
-		lambda = lambda + lambdaFrac;
+		lambda += lambdaFrac;
 		//Sys.println("lambda " + lambda);
 
 		// Solar transit.
@@ -553,16 +564,11 @@ class CrystalView extends Ui.WatchFace {
 		var deltaJSet = jSet - jDate;
 		var deltaJRise = jRise - jDate;
 
-		var tzOffset;
-		if (tz == null) {
-			tzOffset = (Sys.getClockTime().timeZoneOffset / 3600);
-		} else {
-			tzOffset = tz;
-		}
-		
-		var localRise = (deltaJRise * 24) + tzOffset;
-		var localSet = (deltaJSet * 24) + tzOffset;
-		return [localRise, localSet];
+		var tzOffset = (tz == null) ? (Sys.getClockTime().timeZoneOffset / 3600) : tz;
+		return [
+			/* localRise */ (deltaJRise * 24) + tzOffset,
+			/* localSet */ (deltaJSet * 24) + tzOffset
+		];
 	}
 
 	// Return a formatted time dictionary that respects is24Hour and HideHoursLeadingZero settings.
@@ -592,15 +598,9 @@ class CrystalView extends Ui.WatchFace {
 			}
 		}
 
-		// #10 If in 12-hour mode with Hide Hours Leading Zero set, hide leading zero.
+		// #10 If in 12-hour mode with Hide Hours Leading Zero set, hide leading zero. Otherwise, show leading zero.
 		// #69 Setting now applies to both 12- and 24-hour modes.
-		if (App.getApp().getProperty("HideHoursLeadingZero")) {
-			hour = hour.format(INTEGER_FORMAT);
-
-		// Otherwise, show leading zero.
-		} else {
-			hour = hour.format("%02d");
-		}
+		hour = hour.format(App.getApp().getProperty("HideHoursLeadingZero") ? INTEGER_FORMAT : "%02d");
 
 		return {
 			:hour => hour,
