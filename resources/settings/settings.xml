@@ -1,4 +1,10 @@
 <settings>
+	<setting propertyKey="@Properties.donationIntro" title="@Strings.donationIntroTitle" helpUrl="https://www.buymeacoffee.com/peterdd">
+    	<settingConfig type="alphaNumeric" readonly="true" />
+   	</setting>    
+    <setting propertyKey="@Properties.validKey" title="@Strings.donatedTitle" prompt="@Strings.donatedInfo">
+        <settingConfig type="boolean" />
+	</setting> 
 <!-- 
 	<setting propertyKey="@Properties.AppVersion" title="@Strings.AppVersionTitle">
 		<settingConfig type="alphaNumeric" readonly="true"/>

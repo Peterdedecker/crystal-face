@@ -2,6 +2,10 @@
 
 	<string id="AppName">Kudos</string>
 	<string id="AppVersionTitle">App Version</string>
+	<string id="donationIntroTitle">Make a donation! (Any amount is welcome)</string>
+	<string id="donationIntroDetail">Donations help future development and cover recurring costs such as hosting and API costs.</string>
+	<string id="donatedTitle">I have donated. (Thank you!)</string>
+	<string id="donatedInfo">Honor system based. Ticking this box will make you feel good! (There's no extra functionality which unlocks).</string>
 
 	<string id="ThemeTitle">Theme</string>
 	<string id="HoursColourTitle">Hours Colour</string>
